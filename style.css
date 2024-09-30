@@ -1,0 +1,300 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
+    min-height: 100vh;
+    overflow-x: hidden; /* To avoid horizontal scrolling during animations */
+}
+
+header {
+    position: fixed; /* Keep the header fixed at the top */
+    display: flex;
+    align-items: center; /* Center items vertically */
+    background-color: #ffffff; 
+    padding: 10px; /* Reduced padding for smaller height */
+    width: 100%;
+    top: 0;
+    z-index: 1000; /* Ensure it stays above other content */
+}
+
+header img {
+    margin-right: 10px;
+    height: 50px; /* Adjust logo height for a smaller header */
+    width: 50px;
+}
+
+header p {
+    font-size: 24px; /* Reduced font size for header */
+    font-weight: bold;
+    margin: 0; /* Remove margin for a more compact look */
+}
+
+/* Other styles remain unchanged */
+
+
+.header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 50px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.header-container {
+    display: flex;
+    align-items: center; 
+    justify-content: center; 
+}
+
+.profile-img {
+    width: 400px;
+    height: 400px;
+    object-fit: cover;
+    margin-right: 20px; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: box-shadow 0.3s ease, transform 0.5s ease;
+}
+
+.profile-img:hover {
+    transform: scale(1.1) rotate(10deg); /* Slight rotation and scale on hover */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.header-text {
+    max-width: 600px;
+    text-align: left;
+}
+
+h1 {
+    font-size: 80px;
+    color: #0b5394;  
+    margin-bottom: 10px;
+    position: relative;
+    transition: color 0.3s ease;  
+}
+
+h1:hover {
+    color: #0099CC;  
+}
+
+.bio {
+    font-size: 1.5em;
+    margin-top: 10px;
+}
+
+main {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px; 
+}
+
+.content {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    padding: 0;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.column {
+    flex: 1;
+    padding: 20px;
+}
+
+.section {
+    background-color: #eaf2f2;
+    padding: 40px;
+    border-radius: 10px;
+    margin-bottom: 40px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    font-size: 1.3em;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+    opacity: 0;
+    transform: translateY(30px);
+    width: calc(100% - 40px);
+}
+
+.section:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    border: 3px solid #0b5394;
+}
+
+.section h2, h3 {
+    font-size: 2em;
+    color:#0b5394;
+    margin-bottom: 15px;
+}
+
+.section h3 {
+    font-size: 1.7em;
+    margin-top: 20px;
+}
+
+ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+ul ul {
+    list-style-type: circle;
+}
+
+ul li {
+    margin-bottom: 10px;
+    font-size: 1.2em;
+    color: #333;
+}
+/* Updated styling for Hobbies and Languages sections */
+.hobbies-section, .languages-section {
+    background-color: #eaf2f2;  /* Same background color as other sections */
+    padding: 40px;  /* Same padding */
+    border-radius: 10px;
+    margin-bottom: 40px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+    font-size: 1.3em;  /* Same font size as other sections */
+    width: calc(100% - 40px);
+}
+
+/* Apply hover effect and transitions */
+.hobbies-section:hover, .languages-section:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    border: 3px solid#0b5394;  /* Highlight border on hover */
+}
+
+/* Consistent styling for headings */
+.hobbies-section h2, .languages-section h2 {
+    font-size: 2em;
+    color: #0b5394;
+    margin-bottom: 15px;
+}
+
+/* List styling */
+.hobbies-section ul, .languages-section ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+.hobbies-section ul , .languages-section ul {
+    margin-bottom: 10px;
+    font-size: 1.2em;
+    color: #333;
+}
+
+/* Adding smooth scroll animation */
+.hobbies-section, .languages-section {
+    animation: fadeIn 0.8s ease forwards;
+}
+
+/* Scroll-triggered animation */
+.scroll-visible {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.highlight-text { 
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.highlight-text::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 5px;
+    background-color: #008CBA;
+    left: 0;
+    bottom: 0;
+    transform: scaleX(0);
+    transition: transform 0.3s ease-in-out;
+}
+
+.highlight-text:hover::after {
+    transform: scaleX(1);
+}
+
+.card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.section {
+    animation: fadeIn 0.8s ease forwards;
+}
+
+.scroll-visible {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.hidden {
+    opacity: 0;
+    transform: translateY(50px);
+}
+
+.download-section {
+    display: flex;
+    justify-content: center;
+    margin: 40px 0;
+}
+
+.download-btn {
+    text-align: center;
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #0b5394;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 0 5px rgba(11, 83, 148, 0.5), 0 0 15px rgba(11, 83, 148, 0.3);
+}
+
+.download-btn:hover {
+    background-color: #0a4a7b;
+    box-shadow: 0 0 20px rgba(11, 83, 148, 0.6), 0 0 30px rgba(11, 83, 148, 0.4);
+    transform: scale(1.05);
+}
+
+
+.footer {
+    background-color: #d3e3f4;
+    text-align: center;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+.footer a {
+    color: #007BFF;
+}
